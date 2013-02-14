@@ -39,4 +39,41 @@ public class TestLib extends TestCase {
 		assertEquals("fizzbuzz", fizzBuzz.fizzBuzz(15, fizzBuzz.getWords()));
 	}
 
+	@Test
+	public void testSpecificValue() {
+		assertNotNull(fizzBuzz);
+		fizzBuzz.setFirstValue(15);
+		assertEquals("fizzbuzz", fizzBuzz.fizzBuzz(fizzBuzz.getFirstValue(),
+				fizzBuzz.getWords()));
+		fizzBuzz.setFirstValue(10);
+		assertEquals("buzz", fizzBuzz.fizzBuzz(fizzBuzz.getFirstValue(),
+				fizzBuzz.getWords()));
+	}
+
+	@Test
+	public void testSpecificValues() {
+		assertNotNull(fizzBuzz);
+		fizzBuzz.setFirstValue(15);
+		fizzBuzz.setSecondValue(35);
+		String[] words = fizzBuzz.getWords();
+		String word = "";
+		for (int i = fizzBuzz.getFirstValue(); i <= fizzBuzz.getSecondValue(); i++) {
+			word = fizzBuzz.fizzBuzz(i, words);
+			System.out.println(word);
+		}
+		assertEquals("buzz", word);
+	}
+
+	@Test
+	public void testUserDefinedWords() {
+		assertNotNull(fizzBuzz);
+		String[] words = { "farts" };
+		System.out.println("len: " + words.length);
+		String word = "";
+		for (int i = fizzBuzz.getFirstValue(); i <= fizzBuzz.getSecondValue(); i++) {
+			word = fizzBuzz.fizzBuzz(i, words);
+			System.out.println(word);
+		}
+		assertEquals("Too few or Too Many words defined", word);
+	}
 }

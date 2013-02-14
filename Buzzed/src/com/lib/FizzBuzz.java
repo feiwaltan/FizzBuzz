@@ -13,7 +13,9 @@ public class FizzBuzz {
 	private String[] words;
 
 	/**
-	 * 
+	 * Initialize the function to defalut values, which are 1 for firstValue,
+	 * 100 for secoundValue, fizz if its divisible by 3, buzz if divisable by 5
+	 * and fizzbuzz if divisible by both
 	 */
 	public FizzBuzz() {
 		setFirstValue(1);
@@ -67,7 +69,9 @@ public class FizzBuzz {
 	}
 
 	/**
-	 * 
+	 * Prints out the default instance of this, which take the first value and
+	 * loops to the second value and prints out the word based on default
+	 * condition
 	 */
 	public void defaultInstance() {
 		for (int i = getFirstValue(); i <= getSecondValue(); i++) {
@@ -79,10 +83,16 @@ public class FizzBuzz {
 	/**
 	 * 
 	 * @param value
+	 *            the value to evaluate if its divisible by 3 or 5 or both
 	 * @param words
-	 * @return
+	 *            the string array of words to use
+	 * @return result string is returned either word0, word1, word0+word1 or the
+	 *         number
 	 */
 	public String fizzBuzz(int value, String[] words) {
+		if (words.length != 2)
+			return "Too few or Too Many words defined";
+
 		if (value % 3 == 0)
 			if (value % 5 == 0)
 				return (words[0] + words[1]);
